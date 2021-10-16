@@ -1,0 +1,20 @@
+<span class="container text-blue-500">Opponent SCORE: </span>
+
+<ng-container *ngIf="!opponentSelection else opponent">
+    <div class="container">
+        <div class="flex justify-center items-center  w-40 h-40">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+    <span class="container">{{ text }}</span>
+</ng-container>
+
+
+<ng-template #opponent>
+    <div class="container">
+        <div matRipple class="flex justify-center items-center  w-40 h-40">
+            <img class="w-20 h-20" [src]="imgSrc" alt="document">
+        </div>
+    </div>
+    <span class="container">Opponent selection</span>
+</ng-template>

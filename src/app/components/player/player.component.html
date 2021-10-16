@@ -1,0 +1,18 @@
+<span class="container text-green-500">Your SCORE: </span>
+<div class="container">
+    <div *ngIf="show('document')" (click)="onSelect('document')" matRipple
+        class="flex justify-center items-center  w-40 h-40">
+        <img class="w-20 h-20" src="../../../assets/icons/document.png" alt="document">
+    </div>
+
+    <div *ngIf="show('rocks')" (click)="onSelect('rocks')" matRipple
+        class="flex justify-center items-center  w-40 h-40">
+        <img class="w-20 h-20" src="../../../assets/icons/rocks.png" alt="rock">
+    </div>
+
+    <div *ngIf="show('scissors')" (click)="onSelect('scissors')" matRipple
+        class="flex justify-center items-center  w-40 h-40">
+        <img class="w-20 h-20" src="../../../assets/icons/scissors.png" alt="scissors">
+    </div>
+</div>
+<span class="container">{{ text }}</span>

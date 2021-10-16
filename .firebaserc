@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "devjs-3c16e"
+  },
+  "targets": {
+    "devjs-3c16e": {
+      "hosting": {
+        "devjs-game": [
+          "devjs-3c16e"
+        ]
+      }
+    }
+  }
+}
