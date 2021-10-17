@@ -13,4 +13,5 @@ export interface Room {
     startGame: boolean;
     playerSelection: PlayerSelection;
     opponentSelection: PlayerSelection;
+    winner: Profil;
 }

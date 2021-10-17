@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
+import { GameMode, PlayerSelection } from './models';
+import { StateService } from './services/+state.service';
 import { AuthService } from './services/auth.service';
-import { GameMode, PlayerSelection, Profil } from './models';
-import { ComputerService } from './services/computer.service';
-import { UserService } from './services/user.service';
-import { RoomService } from './services/room.service';
-import { ActivatedRoute } from '@angular/router';
 import { InviteService } from './services/invite.service';
-import { filter, take, tap } from 'rxjs/operators';
-import { combineLatest } from 'rxjs';
+import { RoomService } from './services/room.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -22,35 +19,18 @@ export class AppComponent {
   selection: PlayerSelection = null;
   opponentSelection: PlayerSelection = null;
 
+  selection$ = this.state.selection$;
+
   constructor(
     private auth: AuthService,
-    private activatedRoute: ActivatedRoute,
-    private computer: ComputerService,
+    private state: StateService,
     private userService: UserService,
     private roomServie: RoomService,
     private inviteService: InviteService
   ) { }
 
   ngOnInit() {
-    this.userService.userChanged$.subscribe()
-
-    this.userService.userRoomId$.subscribe((roomId) => {
-      this.roomServie.setRoomId(roomId)
-    })
-
-
-    // Oponnet INIt
-    combineLatest([
-      this.activatedRoute.queryParams,
-      this.userService.userRoomId$,
-    ]).pipe(take(1)).subscribe(([params, roomId]) => {
-      if (params.room) {
-        this.userService.setProfile('opponent')
-        this.roomServie.setRoomId(roomId)
-      }
-    })
-
-
+    this.state.game$.subscribe();
   }
 
   async onSignInGoogle() {
@@ -68,17 +48,9 @@ export class AppComponent {
   }
 
   onSelect(selection: PlayerSelection) {
-    console.log('asd')
     this.selection = selection
 
-    this.userService.userProfil$.pipe(
-      tap(console.log),
-      take(1),
-      filter((profil: Profil | undefined): profil is Profil => profil !== undefined),
-      tap((profil) => {
-        this.roomServie.onSelection(profil, selection)
-      })
-    ).subscribe()
+    this.state.setSelection(selection).subscribe()
   }
 
   async onInvitePlayer() {

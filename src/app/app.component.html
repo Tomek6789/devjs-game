@@ -7,19 +7,7 @@
 
     <div class="game">
       <app-player [selection]="selection" (playerSelection)="onSelect($event)" class="divider"></app-player>
-      <app-oponnet [opponentSelection]="opponentSelection"></app-oponnet>
+      <app-oponnet [opponentSelection]="selection$ | async"></app-oponnet>
     </div>
   </div>
 </ng-template>
-
-
-
-<!-- <div class="min-h-screen flex justify-center items-center">
-  <div class="w-48 h-64 rounded-xl bg-gray-200 flex flex-col shadow">
-    <img class="w-auto rounded-t-xl" src="https://avatars.githubusercontent.com/u/16485031?v=4" alt="avatar" />
-    <div class="text-center flex flex-col p-2">
-      <span class="text-base font-bold">Dendi Handian</span>
-      <span class="text-xs italic">Software Engineer</span>
-    </div>
-  </div>
-</div> -->

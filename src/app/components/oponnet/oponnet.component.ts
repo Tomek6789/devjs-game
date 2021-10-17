@@ -12,7 +12,7 @@ export class OponnetComponent implements OnChanges {
   text = 'Waiting for the opponent'
   imgSrc = ''
 
-  @Input() opponentSelection: PlayerSelection = null;
+  @Input() opponentSelection: PlayerSelection | undefined = undefined;
 
 
   ngOnChanges(changes: SimpleChanges) {

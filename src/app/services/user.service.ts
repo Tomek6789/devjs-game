@@ -56,7 +56,7 @@ export class UserService {
     })
   }
 
-  setRoomId(roomId: string) {
+  setRoomId(roomId: string | undefined) {
     this.angularFirestore.collection('users').doc(this.userUid).update({
       roomId
     })
