@@ -30,8 +30,8 @@ export class RoomService {
   playerScore$ = this.roomChanged$.pipe(map((room) => room.playerScore), distinctUntilChanged());
   opponentScore$ = this.roomChanged$.pipe(map((room) => room.opponentScore), distinctUntilChanged());
   winner$ = this.roomChanged$.pipe(map((room) => room.winner), filter(Boolean)); // can be tie two times
-  endScore$ = this.roomChanged$.pipe(map((room) => room.endScore), distinctUntilChanged());
-  gameWinner$ = this.roomChanged$.pipe(map((room) => room.gameWinner), tap(console.log), distinctUntilChanged(), filter(Boolean),);
+  endScore$ = this.roomChanged$.pipe(map((room) => room.endScore));
+  gameWinner$ = this.roomChanged$.pipe(map((room) => room.gameWinner), distinctUntilChanged(), filter(Boolean),);
 
   constructor(private angularFirestore: AngularFirestore, private snackBar: MatSnackBar) { }
 

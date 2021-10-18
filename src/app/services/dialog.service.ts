@@ -21,7 +21,6 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().pipe(take(1)).subscribe(result => {
-      console.log('The dialog was closed');
       this.roomService.finishGame()
     });
   }

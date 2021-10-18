@@ -14,6 +14,7 @@ export class StateService {
   // USER
   user$ = this.userService.userChanged$;
   userRoomId$ = this.userService.userRoomId$.pipe(
+    filter((roomId: string | null): roomId is string => roomId !== null),
     tap((roomId) => {
       this.roomService.setRoomId(roomId)
     })
