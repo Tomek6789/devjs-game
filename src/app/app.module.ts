@@ -18,6 +18,11 @@ import { PlayerComponent } from './components/player/player.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import { WinnerDialogComponent } from './components/winner-dialog/winner-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +32,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
     OponnetComponent,
     PlayerComponent,
+    WinnerDialogComponent
 
   ],
   imports: [
@@ -35,6 +41,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AngularFireAuthModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: "",
@@ -48,7 +55,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

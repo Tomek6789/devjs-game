@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PlayerSelection } from 'src/app/models';
 
 @Component({
@@ -12,10 +12,17 @@ export class PlayerComponent {
   text = 'Make a pick'
 
   @Input() selection: PlayerSelection = null;
+  @Input() playerScore: number | null = 0;
+
   @Output() playerSelection = new EventEmitter<PlayerSelection>()
 
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.selection && !changes.selection.currentValue) {
+      this.text = 'Make a pick'
+    }
+  }
+
   onSelect(selection: PlayerSelection) {
-    this.selection = selection
     this.text = "You made a selection"
     this.playerSelection.emit(selection)
   }

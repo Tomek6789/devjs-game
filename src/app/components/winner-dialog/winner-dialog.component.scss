@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.close-button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  
+  .canvas {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+  }

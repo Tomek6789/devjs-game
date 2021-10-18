@@ -19,6 +19,6 @@ export class InviteService {
     const tree = this.router.createUrlTree([], { queryParams: { room: roomKey } });
 
     this.clipboard.copy(`http://localhost:4200${this.serializer.serialize(tree)}`);
-    this.snackBar.open("Send this link to your friend");
+    this.snackBar.open("Copied! Send this link to your friend");
   }
 }

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import firebase from 'firebase/compat/app';
-import { filter, map, share, shareReplay, switchMap, tap } from 'rxjs/operators';
-import { PlayerSelection, Profil, User } from '../models';
+import { filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { Profile, User } from '../models';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -23,7 +23,6 @@ export class UserService {
   userChanged$ = this.auth.authStateChanged$.pipe(
     filter((user: firebase.User | null): user is firebase.User => user !== null),
     tap((user) => {
-      console.log('adadsad')
       this.userUid = user.uid
     }),
     switchMap((user) => {
@@ -32,11 +31,14 @@ export class UserService {
         .doc(user.uid)
         .valueChanges()
     }),
+    filter((user: User | undefined): user is User => user !== undefined),
     shareReplay(1)
   );
 
-  userProfil$ = this.userChanged$.pipe(map((user) => user?.profil));
-  userRoomId$ = this.userChanged$.pipe(map((user) => user?.roomId));
+  userProfil$ = this.userChanged$.pipe( map((user) => user.profile));
+  userRoomId$ = this.userChanged$.pipe(map((user) => user.roomId));
+  photoUrl$ = this.userChanged$.pipe(map((user) => user.photoUrl));
+  winnerDialogUser$ = this.userChanged$.pipe(map(({photoUrl,profile}) => ({photoUrl, profile})));
 
 
   // ACTIONS/COMMANDS 
@@ -46,13 +48,14 @@ export class UserService {
     this.angularFirestore
       .collection("users").doc(user.uid).set({
         photoUrl: user.photoURL,
-        bestScore: 0
+        bestScore: 0,
+        roomId: null
       });
   }
 
-  setProfile(profil: Profil) {
+  setProfile(profile: Profile) {
     this.angularFirestore.collection('users').doc(this.userUid).update({
-      profil
+      profile
     })
   }
 

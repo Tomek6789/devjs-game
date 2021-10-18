@@ -1,17 +1,20 @@
 export type PlayerSelection = 'document' | 'rocks' | 'scissors' | null
 export type GameMode = 'opponent' | 'computer';
-export type Profil = 'player' | 'opponent';
+export type Profile = 'player' | 'opponent';
 
 export interface User {
     photoUrl: string;
     bestScore: number;
-    profil: Profil;
+    profile: Profile;
     roomId: string;
 }
 
 export interface Room {
-    startGame: boolean;
     playerSelection: PlayerSelection;
     opponentSelection: PlayerSelection;
-    winner: Profil;
+    playerScore: number;
+    opponentScore: number;
+    winner: Profile | null;
+    endScore: number;
+    gameWinner: Profile | null;
 }

@@ -12,7 +12,7 @@ export class AuthService {
   private authStateChangedSubject = new Subject<firebase.User | null>()
   authStateChanged$ = this.authStateChangedSubject.asObservable();
 
-  isLogin$ = this.authStateChanged$.pipe(map(user => !user), tap(console.log));
+  isLogin$ = this.authStateChanged$.pipe(map(user => !user));
 
   // Progress na oninit
 

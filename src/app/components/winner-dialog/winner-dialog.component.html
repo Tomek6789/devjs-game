@@ -1,0 +1,20 @@
+<div >
+    <div class="container">   
+        <span 
+            [class.text-green-500]="data.gameWinner === 'player'" 
+            [class.text-blue-500]="data.gameWinner === 'opponent'" 
+            
+        >WINNER: {{data.gameWinner}}</span>   
+        
+        <div class="m-20"></div>
+
+        <div>
+            Congratulation. {{ data.gameWinner }}  
+            You win the game.
+        </div>
+        <canvas #canvas class="canvas"></canvas>
+    </div>
+</div>
+
+
+

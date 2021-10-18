@@ -13,12 +13,11 @@ export class OponnetComponent implements OnChanges {
   imgSrc = ''
 
   @Input() opponentSelection: PlayerSelection | undefined = undefined;
-
+  @Input() opponentScore: number | null = 0;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.opponentSelection.currentValue) {
+    if (changes.opponentSelection && changes.opponentSelection.currentValue) {
       this.imgSrc = `../../../assets/icons/${changes.opponentSelection.currentValue}.png`
-      console.log(this.imgSrc)
     }
   }
 }

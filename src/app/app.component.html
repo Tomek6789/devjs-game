@@ -3,11 +3,27 @@
 
 <ng-template #game>
   <div class="h-screen w-screen">
-    <app-navbar (signOut)="onSignOut()" (computer)="playWithComputer()" (invite)="onInvitePlayer()"></app-navbar>
+    <app-navbar 
+      [endScorePoints]="endScore$ | async"  
+      [photoUrl]="photoUrl$ | async" 
+      (signOut)="onSignOut()" 
+      (computer)="playWithComputer()" 
+      (invite)="onInvitePlayer()"
+      (endScore)="onEndScore($event)"
+    ></app-navbar>
 
+    <div>Get {{ endScore$ | async }} points to win!</div>
     <div class="game">
-      <app-player [selection]="selection" (playerSelection)="onSelect($event)" class="divider"></app-player>
-      <app-oponnet [opponentSelection]="selection$ | async"></app-oponnet>
+      <app-player 
+        [playerScore]="playerScore$ | async"
+        [selection]="playerSelection$ | async" 
+        (playerSelection)="onSelect($event)" 
+        class="divider">
+      </app-player>
+      <app-oponnet 
+        [opponentScore]="opponnetScore$ | async"
+        [opponentSelection]="opponentselection$ | async"
+      ></app-oponnet>
     </div>
   </div>
 </ng-template>
