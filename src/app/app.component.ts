@@ -1,6 +1,6 @@
-import { Component, HostListener } from '@angular/core';
-import { switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { PlayerSelection, Profile } from './models';
+import { Component } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { PlayerSelection, Profile } from '../../models/model';
 import { StateService } from './services/+state.service';
 import { AuthService } from './services/auth.service';
 import { ComputerService } from './services/computer.service';

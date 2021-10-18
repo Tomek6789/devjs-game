@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, iif, merge } from 'rxjs';
 import { delay, filter, switchMap, take, tap } from 'rxjs/operators';
-import { PlayerSelection, Profile } from '../models';
+import { PlayerSelection, Profile } from '../../../models/model';
 import { RoomService } from './room.service';
 import { UserService } from './user.service';
 import firebase from 'firebase/compat/app';

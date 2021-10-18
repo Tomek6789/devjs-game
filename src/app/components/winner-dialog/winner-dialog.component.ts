@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Profile } from 'src/app/models';
-import { create } from 'canvas-confetti'
+import { create } from 'canvas-confetti';
+import { Profile } from '../../../../models/model';
 
 @Component({
   selector: 'app-winner-dialog',

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 import { WinnerDialogComponent } from '../components/winner-dialog/winner-dialog.component';
-import { Profile } from '../models';
+import { Profile } from '../../../models/model';
 import { RoomService } from './room.service';
 
 @Injectable({

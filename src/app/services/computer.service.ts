@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PlayerSelection } from '../models';
+import { PlayerSelection } from '../../../models/model';
 
 @Injectable({
   providedIn: 'root'

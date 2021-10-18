@@ -1,16 +1,5 @@
 import * as functions from "firebase-functions";
-export type PlayerSelection = "document" | "rocks" | "scissors"
-export type Winner = "player" | "opponent" | "tie"
-
-interface Room {
-  playerSelection: PlayerSelection,
-  opponentSelection: PlayerSelection,
-  winner: string;
-  playerScore: number;
-  opponentScore: number;
-  endScore: number;
-  gameWinner: "player" | "opponent" | null
-}
+import { PlayerSelection, Room, Winner } from '../../models/model';
 
 export const winner = functions.firestore
     .document("/rooms/{roomId}").onUpdate((change) => {

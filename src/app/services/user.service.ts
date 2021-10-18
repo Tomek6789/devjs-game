@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import firebase from 'firebase/compat/app';
 import { filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
-import { Profile, User } from '../models';
+import { Profile, User } from '../../../models/model';
 import { AuthService } from './auth.service';
 
 @Injectable({

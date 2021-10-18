@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { Observable, Subject } from "rxjs";
-import { map, startWith, switchMap, tap } from "rxjs/operators";
+import { Subject } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",

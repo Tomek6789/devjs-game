@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { PlayerSelection } from 'src/app/models';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { PlayerSelection } from '../../../../models/model';
 
 @Component({
   selector: 'app-player',

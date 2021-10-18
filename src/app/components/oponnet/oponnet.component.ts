@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { PlayerSelection } from 'src/app/models';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { PlayerSelection } from '../../../../models/model';
 
 @Component({
   selector: 'app-oponnet',

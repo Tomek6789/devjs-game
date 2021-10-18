@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
-import { PlayerSelection, Profile, Room } from '../models';
+import { PlayerSelection, Profile, Room } from '../../../models/model';
 
 @Injectable({
   providedIn: 'root'
